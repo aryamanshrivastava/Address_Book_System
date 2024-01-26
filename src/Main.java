@@ -1,19 +1,27 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("--------Welcome to Address Book---------");
-        Person p1 = new Person();
-        AddressBookService s1 = new AddressBookService();
-        //contact of 1 person
-        s1.setValues(p1);
-        System.out.println(s1.display(p1));
-        AddressBook a1 = new AddressBook();
-        a1.contactList.put(1,p1);
-        System.out.println(a1.contactList);
-        // contact of second person
-        Person p2 = new Person();
-        s1.setValues(p2);
-        System.out.println(s1.display(p2));
-        a1.contactList.put(2,p2);
-        System.out.println(a1.contactList);
+
+        AddressBookService addressBookService = new AddressBookService();
+        AddressBook addressBook = new AddressBook();
+
+        // Add a new person to the address book
+        addressBook.addPerson(addressBookService);
+
+        // Display the address book after adding the first person
+        System.out.println("Address Book after adding the first person:");
+        for (Person person : addressBook.contactList.values()) {
+            System.out.println(addressBookService.display(person));
+        }
+
+
+        // Edit an existing contact by name
+        addressBook.editContactByName(addressBookService);
+
+        // Display the updated address book
+        System.out.println("Address Book after editing a contact:");
+        for (Person person : addressBook.contactList.values()) {
+            System.out.println(addressBookService.display(person));
+        }
     }
 }
