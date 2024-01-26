@@ -14,6 +14,24 @@ public class Main {
             System.out.println(addressBookService.display(person));
         }
 
+        // Add a second person to the address book
+        addressBook.addPerson(addressBookService);
+
+        // Display the address book after adding the second person
+        System.out.println("Address Book after adding the second person:");
+        for (Person person : addressBook.contactList.values()) {
+            System.out.println(addressBookService.display(person));
+        }
+
+        // Delete a person by name
+        addressBook.deletePersonByName();
+
+        // Display the updated address book
+        System.out.println("Address Book after deleting a person:");
+        for (Person person : addressBook.contactList.values()) {
+            System.out.println(addressBookService.display(person));
+        }
+
 
         // Edit an existing contact by name
         addressBook.editContactByName(addressBookService);

@@ -12,6 +12,25 @@ public class AddressBook {
         System.out.println("Contact added successfully with ID: " + newContactId);
     }
 
+    // Method to delete a person by name
+    public void deletePersonByName() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the First Name of the person you want to delete:");
+        String name = sc.next();
+
+        for (Person person : contactList.values()) {
+            if (person.getFirstName().equalsIgnoreCase(name)) {
+                // person found, delete from the address book
+                contactList.values().remove(person);
+                System.out.println("Contact deleted successfully.");
+                return;
+            }
+        }
+
+        // if person name not found
+        System.out.println("Person with the given name not found in the address book.");
+    }
+
     // This method is responsible for editing an existing contact by name
     public void editContactByName(AddressBookService addressBookService) {
         Scanner sc = new Scanner(System.in);
